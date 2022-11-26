@@ -1,6 +1,6 @@
 const express = require('express'); 
 const router = express.Router();
-
+const db = require('../../database')
 // // Handlebars Middleware
 // app.engine('handlebars', exphbs.engine({ defaultLayout: 'main' }));
 // app.set('view engine', 'handlebars');
@@ -13,9 +13,9 @@ const router = express.Router();
 
 //routes
 router.get('/', async (req, res) => {
-    // const list = await db.getList()
+    const list = await db.getList()
     // res.render('index', { items: list })
-    res.send("hello")
+    res.send(list)
 })
 
 // app.post('/add', async (req, res) => {

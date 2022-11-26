@@ -1,15 +1,5 @@
-const express = require('express');
-//const path = require('path');
-//const exphbs = require('express-handlebars');
-const bodyParser = require('body-parser')
-//const db = require('./database')
-const cors=require('cors')
-const app = express()
-app.use(bodyParser.json())
-app.use(cors())
-
-const posts=require('./routes/api/posts')
-app.use('/api/posts',posts)
+const express = require('express'); 
+const router = express.Router();
 
 // // Handlebars Middleware
 // app.engine('handlebars', exphbs.engine({ defaultLayout: 'main' }));
@@ -21,12 +11,12 @@ app.use('/api/posts',posts)
 // // Set static folder
 // app.use(express.static(path.join(__dirname, 'public')));
 
-// //routes
-// app.get('/', async (req, res) => {
-//     const list = await db.getList()
-//     res.render('index', { items: list })
-//     //console.log(list)
-// })
+//routes
+router.get('/', async (req, res) => {
+    // const list = await db.getList()
+    // res.render('index', { items: list })
+    res.send("hello")
+})
 
 // app.post('/add', async (req, res) => {
 //     let { todo_item } = req.body;
@@ -44,8 +34,4 @@ app.use('/api/posts',posts)
 //     res.redirect('/')
 // })
 
-const PORT = process.env.PORT || 5000;
-
-app.listen(process.env.PORT||PORT, () => {
-    console.log(`server started on port ${PORT}`)
-})
+module.exports=router;

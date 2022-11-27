@@ -14,24 +14,20 @@ const db = require('../../database')
 //routes
 router.get('/', async (req, res) => {
     const list = await db.getList()
-    // res.render('index', { items: list })
     res.send(list)
 })
 
-// app.post('/add', async (req, res) => {
-//     let { todo_item } = req.body;
-//     if (todo_item!="") {
-//         const result = await db.createTodo(todo_item)
-//     }
-//     //console.log(req.body)
-//     res.redirect('/')
-// })
 
-// app.post('/delete/:id', async (req, res) => {
-//     const item=req.params.id
-//     const result = await db.deleteTodo(item)
-//     //console.log(req.params)
-//     res.redirect('/')
-// })
+router.post('/', async (req, res) => {
+    const todo_item = req.body.item;
+    if (todo_item!="") {
+        const result = await db.createTodo(todo_item)
+    }
+})
+
+router.delete('/:id', async (req, res) => {
+    const item=req.params.id
+    const result = await db.deleteTodo(item)
+})
 
 module.exports=router;

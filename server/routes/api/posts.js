@@ -1,15 +1,6 @@
 const express = require('express'); 
 const router = express.Router();
 const db = require('../../database')
-// // Handlebars Middleware
-// app.engine('handlebars', exphbs.engine({ defaultLayout: 'main' }));
-// app.set('view engine', 'handlebars');
-
-// // Body Parser Middleware
-// app.use(bodyParser.urlencoded({ extended: false }));
-
-// // Set static folder
-// app.use(express.static(path.join(__dirname, 'public')));
 
 //routes
 router.get('/', async (req, res) => {

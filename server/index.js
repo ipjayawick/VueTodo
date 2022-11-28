@@ -11,6 +11,11 @@ app.use(cors())
 const posts=require('./routes/api/posts')
 app.use('/api/posts',posts)
 
+
+if(process.env.NODE_ENV==='production'){
+    app.use(express.static(__dirname+'/public/'))
+    app.get(/.*/,(req,res)=>res.sendFile(__dirname+'/public/index.html'))
+}
 // // Handlebars Middleware
 // app.engine('handlebars', exphbs.engine({ defaultLayout: 'main' }));
 // app.set('view engine', 'handlebars');

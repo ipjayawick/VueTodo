@@ -1,6 +1,5 @@
 const express = require('express'); 
 const mongodb=require('mongodb');
-const dotenv=require('dotenv')
 const router = express.Router();
 //const db = require('../../database')
 //routes

@@ -4,10 +4,10 @@ const dotenv=require('dotenv')
 dotenv.config()
 
 const pool=mysql.createPool({
-    host:process.env.MYSQL_HOST,
-    user:process.env.MYSQL_USER,
-    password:process.env.MYSQL_PASSWORD,
-    database:process.env.MYSQL_DATABASE
+    host:"todoapp.ck2iogphtt9t.ap-northeast-1.rds.amazonaws.com",
+    user:'admin',
+    password:'user1234',
+    database:'todo'
 }).promise()
 
 async function getList(){
